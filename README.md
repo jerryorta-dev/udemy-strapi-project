@@ -32,6 +32,52 @@ npm run build
 yarn build
 ```
 
+## Swagger Docs
+
+[See docs](https://docs.strapi.io/developer-docs/latest/plugins/documentation.html#installation)
+
+Installation:
+
+```
+npm run strapi install documentation
+```
+
+Set minimal configuration at `src/extensions/documentation/documentation/config/settings.json`
+
+```
+{
+  "info": {
+    "title": "Sample Pet Store App",
+    "description": "This is a sample server for a pet store.",
+    "termsOfService": "http://example.com/terms/",
+    "contact": {
+      "name": "API Support",
+      "url": "http://www.example.com/support",
+      "email": "support@example.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.1"
+  }
+}
+```
+
+Start Strapi and initial documentation will be generated ( updates require a different procedure ). The `full_documentation.json` is located at `src/extensions/documentation/documentation/1.0.0/full_documentation.json`.
+
+### Generate typescript interface files fall data structures:
+
+
+1. Copy this file from  `src/extensions/documentation/documentation/1.0.0/full_documentation.json`, and upload to [https://editor.swagger.io/](https://editor.swagger.io/); You will see errors, ignore them. 
+2. Select `Generate Client` from the header menu
+3. Select `typescript-angular`
+4. Wait for zip file to downlaod
+5. Unzip file
+6. Copy the files under `./model` to angular project.
+
+
+
 ## ⚙️ Deployment
 
 Strapi gives you many possible deployment options for your project. Find the one that suits you on the [deployment section of the documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html).
